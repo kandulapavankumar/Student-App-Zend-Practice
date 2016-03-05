@@ -1,0 +1,36 @@
+<html>
+	<body>
+        <br>
+        <b style = 'margin-left : 150px;'> STUDENT DETAILS </b>
+
+        <table border = "1" style = 'margin-top : 15px; margin-left : 20px; border-collapse : collapse; '>
+
+            <tr >
+                <th width = 60px> ID </th>
+                <th width = 60px> NAME </th>
+                <th width = 120px> ADDRESS </th>
+                <th width = 60px> EDIT </th>
+                <th width = 80px> DELETE </th>
+            </tr>
+
+            <?php foreach ($student1 as $student) : ?>
+            <tr align = 'center'>
+
+                <td> <?php echo $this->escapeHtml($student->id); ?> </td>
+                <td> <?php echo $this->escapeHtml($student->name); ?> </td>
+                <td> <?php echo $this->escapeHtml($student->address); ?> </td>
+                <td> <a href = " <?php echo $this->url('student',
+                        array('action' => 'edit', 'id' => $student->id)); ?> "> Edit </a> </td>
+                <td> <a href = " <?php echo $this->url('student',
+                        array('action' => 'delete', 'id' => $student->id)); ?> "> Delete </a> </td>
+
+            </tr>
+
+            <?php endforeach; ?>
+
+        </table>
+        <br>
+        <a style = 'margin-left : 150px;' href = "<?php echo $this->url('student',
+            array('action' => 'add'));?>"> Add new Student </a>
+	</body>
+</html>

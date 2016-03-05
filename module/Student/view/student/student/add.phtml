@@ -1,0 +1,60 @@
+<html>
+    <body>
+        <br>
+        <script>
+            function validation()
+            {
+                var name=document.getElementById("name").value;
+                var id=document.getElementById("id").value;
+                var address=document.getElementById("address").value;
+
+                if(name == "" || id == "" || address == ""){
+                    alert("Please Enter All Details");
+
+                    return false;
+                }
+                if(isNaN(id)){
+                    alert("Please enter Valid ID");
+
+                    return false;
+                }
+            }
+        </script>
+
+        <b style = 'margin-left : 120px;'> ADD STUDENT DETAILS </b>
+
+        <form method = "post" action = "<?php echo $this->url('student',
+            array('action' => 'addstudent')); ?>" onSubmit = "return validation()" >
+
+            <input type = "text" id = "oldid" name = "oldid"   value = "0" style = "visibility : hidden"/>
+
+            <table style = "text-indent : 30px">
+
+                <tr>
+                    <td>ENTER STUDENT ID:</td>
+                    <td><input type = "text" id = "id" name = "id" /></td>
+                </tr>
+
+                <tr>
+                    <td>ENTER STUDENT NAME:</td>
+                    <td><input type = "text" id = "name" name = "name"/></td>
+                </tr>
+
+                <tr>
+                    <td>ENTER STUDENT ADDRESS:</td>
+                    <td><input type = "text" id = "address" name = "address"  /></td>
+                </tr>
+            </table>
+            <br>
+
+            <table style = "text-indent : 50px; border-left : 20px">
+                <tr>
+                    <td align = "center"><input type = "submit" value = "ADD"></td>
+                    <td align = "center"><input type = "reset" value = "RESET"/></td>
+                    <td align = "center"><a href = "<?php echo $this->url('student',
+                            array('action' => 'index'));?>"><input type = "button" value = "Cancel"></a></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
